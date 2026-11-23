@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>As Above, So Below: An Occult Songbook — Double LP</title>
+  <meta name="description" content="30 master tracks of country weirdcore by O'Shibboleth & The Magic Static Society. Appalachian clawhammer banjo meets Paul's Boutique boom-bap breakbeats, The Archivist late-night radio fact cards, and hand-stitched Whitman sampler lyrics." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600&family=Syncopate:wght@400;700;800&family=VT323&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Theme 1: 1964 Interzone Drive-In */
+      --bg-drivein: #05060A;
+      --card-drivein: #0B0E18;
+      --border-drivein: rgba(255, 107, 0, 0.4);
+      --accent-drivein: #FF6B00;
+      --gold-drivein: #FFD700;
+      --cyan-drivein: #00E5FF;
+      --text-drivein: #E2E8F0;
+
+      /* Theme 2: Whitman Sampler Old Country Needlepoint */
+      --bg-sampler: #181410;
+      --cloth-sampler: #211B14;
+      --linen-light: #F6F1E5;
+      --border-sampler: #8C6239;
+      --red-thread: #C84630;
+      --green-thread: #587B51;
+      --gold-thread: #E0A838;
+      --blue-thread: #456A8F;
+      --bone-thread: #F5EFE0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-drivein);
+      color: var(--text-drivein);
+      font-family: 'Space Mono', monospace, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* ─── DRIVE-IN THEME ─── */
+    body.theme-drivein {
+      background: radial-gradient(ellipse at 50% 0%, #151122 0%, #06070C 70%, #020204 100%);
+      color: #E2E8F0;
+    }
+
+    /* ─── WHITMAN SAMPLER THEME ─── */
+    body.theme-sampler {
+      background-color: #14110C;
+      background-image: 
+        radial-gradient(#261E14 1px, transparent 1px),
+        linear-gradient(to right, rgba(255, 230, 180, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 230, 180, 0.02) 1px, transparent 1px);
+      background-size: 20px 20px, 4px 4px, 4px 4px;
+      color: #EADFC9;
+    }
+
+    /* Top Suite Bar */
+    .top-suite-bar {
+      height: 42px;
+      background: rgba(8, 8, 14, 0.95);
+      border-bottom: 1px solid rgba(255, 107, 0, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+
+    body.theme-sampler .top-suite-bar {
+      background: #1C1610;
+      border-bottom: 2px dashed #8C6239;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 20px;
+      letter-spacing: 2.5px;
+      color: #FF6B00;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    body.theme-sampler .brand-title {
+      color: var(--gold-thread);
+      font-family: 'Cinzel', serif;
+      letter-spacing: 1.5px;
+    }
+
+    .suite-nav-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 5px 10px;
+      font-size: 9px;
+      font-family: 'Syncopate', sans-serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .suite-nav-btn:hover {
+      background: rgba(255, 107, 0, 0.25);
+      border-color: #FF6B00;
+      color: #FFD700;
+    }
+
+    /* Theme Switcher Toggle */
+    .theme-switch-btn {
+      background: linear-gradient(90deg, #FF6B00, #FFD700);
+      color: #000;
+      font-weight: 800;
+      border: none;
+      box-shadow: 0 0 12px rgba(255, 107, 0, 0.4);
+    }
+
+    body.theme-sampler .theme-switch-btn {
+      background: linear-gradient(90deg, var(--gold-thread), #C84630);
+      color: #FFF;
+      box-shadow: 0 0 12px rgba(224, 168, 56, 0.3);
+    }
+
+    /* Container */
+    .page-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 16px 80px;
+    }
+
+    /* Hero Banner */
+    .hero-marquee {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 28px;
+      background: rgba(13, 17, 28, 0.9);
+      border: 2px solid rgba(255, 107, 0, 0.45);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 107, 0, 0.15);
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body.theme-sampler .hero-marquee {
+      background: #241D15;
+      border: 3px double #A67C4A;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    /* Cross-stitch decorative ribbon on sampler mode */
+    .sampler-border-top {
+      display: none;
+      text-align: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--gold-thread);
+      margin-bottom: 12px;
+      user-select: none;
+    }
+
+    body.theme-sampler .sampler-border-top {
+      display: block;
+    }
+
+    /* Album Cover Display */
+    .cover-frame {
+      position: relative;
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      aspect-ratio: 1 / 1.4;
+      background: #000;
+    }
+
+    body.theme-sampler .cover-frame {
+      border: 3px solid #8C6239;
+      outline: 2px dashed #E0A838;
+      outline-offset: -6px;
+    }
+
+    .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .cover-frame:hover .cover-img {
+      transform: scale(1.02);
+    }
+
+    .cover-thumb {
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.2s ease;
+      opacity: 0.65;
+    }
+
+    .cover-thumb:hover, .cover-thumb.active {
+      opacity: 1;
+      border-color: #FFD700;
+      transform: scale(1.1);
+      box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+    }
+
+    /* Hero Text & Controls */
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .album-kicker {
+      font-family: 'Syncopate', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #00E5FF;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    body.theme-sampler .album-kicker {
+      color: var(--red-thread);
+      font-family: 'Cinzel', serif;
+    }
+
+    .album-headline {
+      font-family: 'Cinzel', serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: #FFD700;
+      letter-spacing: 2px;
+      line-height: 1.15;
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+      margin-bottom: 6px;
+    }
+
+    body.theme-sampler .album-headline {
+      font-family: 'Playfair Display', serif;
+      color: var(--bone-thread);
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    .album-subheadline {
+      font-size: 13px;
+      color: #94A3B8;
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+
+    body.theme-sampler .album-subheadline {
+      color: var(--gold-thread);
+    }
+
+    .album-blurb {
+      font-size: 12px;
+      line-height: 1.6;
+      color: #CBD5E1;
+      margin-bottom: 18px;
+    }
+
+    body.theme-sampler .album-blurb {
+      color: #D6CBB8;
+      font-family: 'IM Fell English', serif;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .album-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .badge-pill {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      padding: 3px 8px;
+      font-size: 10px;
+      color: #FFD700;
+    }
+
+    body.theme-sampler .badge-pill {
+      background: #19140E;
+      border: 1px dashed #8C6239;
+      color: var(--bone-thread);
+    }
+
+    /* Player Console */
+    .master-player-console {
+      background: rgba(10, 13, 22, 0.95);
+      border: 2px solid #FF6B00;
+      border-radius: 10px;
+      padding: 16px 20px;
+      box-shadow: 0 0 20px rgba(255, 107, 0, 0.25);
+      margin-bottom: 24px;
+    }
+
+    body.theme-sampler .master-player-console {
+      background: #201912;
+      border: 2px solid #A67C4A;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.5), 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .now-playing-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      gap: 12px;
+    }
+
+    .now-playing-info {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .now-playing-label {
+      font-size: 9px;
+      font-family: 'Syncopate', sans-serif;
+      color: #00E5FF;
+      letter-spacing: 2px;
+    }
+
+    body.theme-sampler .now-playing-label {
+      color: var(--red-thread);
+    }
+
+    .now-playing-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #FFD700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-family: 'Cinzel', serif;
+    }
+
+    body.theme-sampler .now-playing-title {
+      color: var(--bone-thread);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .now-playing-sub {
+      font-size: 11px;
+      color: #94A3B8;
+    }
+
+    body.theme-sampler .now-playing-sub {
+      color: var(--gold-thread);
+    }
+
+    /* Player Progress Slider */
+    .progress-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .time-readout {
+      font-size: 11px;
+      font-mono: true;
+      color: #AAA;
+      min-width: 44px;
+    }
+
+    .scrub-slider {
+      flex: 1;
+      -webkit-appearance: none;
+      height: 6px;
+      border-radius: 3px;
+      background: #1E2538;
+      outline: none;
+      cursor: pointer;
+    }
+
+    body.theme-sampler .scrub-slider {
+      background: #3B2E20;
+    }
+
+    .scrub-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #FF6B00;
+      box-shadow: 0 0 8px #FF6B00;
+      cursor: pointer;
+    }
+
+    body.theme-sampler .scrub-slider::-webkit-slider-thumb {
+      background: var(--gold-thread);
+      box-shadow: 0 0 6px rgba(224, 168, 56, 0.8);
+    }
+
+    /* Transport Buttons */
+    .transport-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .transport-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ctrl-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .ctrl-btn:hover {
+      background: rgba(255, 107, 0, 0.3);
+      border-color: #FF6B00;
+      color: #FFD700;
+    }
+
+    .ctrl-play-btn {
+      background: linear-gradient(90deg, #FF6B00, #FFD700);
+      color: #000;
+      font-weight: 800;
+      padding: 8px 20px;
+      font-size: 14px;
+      border: none;
+      box-shadow: 0 0 15px rgba(255, 107, 0, 0.4);
+    }
+
+    body.theme-sampler .ctrl-play-btn {
+      background: linear-gradient(90deg, var(--gold-thread), #C84630);
+      color: #FFF;
+    }
+
+    .radio-ad-btn {
+      background: rgba(0, 229, 255, 0.15);
+      border: 1px solid #00E5FF;
+      color: #00E5FF;
+      font-size: 10px;
+      font-family: 'Syncopate', sans-serif;
+      font-weight: 700;
+      padding: 6px 12px;
+    }
+
+    /* Volumes Filter Pills */
+    .volume-filter-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 18px;
+    }
+
+    .vol-btn {
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #AAA;
+      font-size: 10px;
+      font-family: 'Syncopate', sans-serif;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .vol-btn:hover, .vol-btn.active {
+      background: rgba(255, 107, 0, 0.25);
+      border-color: #FF6B00;
+      color: #FFD700;
+    }
+
+    body.theme-sampler .vol-btn.active {
+      background: var(--cloth-sampler);
+      border-color: var(--gold-thread);
+      color: var(--bone-thread);
+      border-style: solid;
+    }
+
+    /* Tracklist Grid */
+    .tracklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .track-card {
+      background: rgba(14, 18, 30, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .track-card:hover {
+      border-color: #FF6B00;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 12px rgba(255, 107, 0, 0.2);
+    }
+
+    .track-card.active {
+      border: 2px solid #FFD700;
+      background: rgba(30, 24, 16, 0.95);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.35);
+    }
+
+    body.theme-sampler .track-card {
+      background: #1E1812;
+      border: 1px solid #4D3926;
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+    }
+
+    body.theme-sampler .track-card:hover {
+      border-color: var(--gold-thread);
+    }
+
+    body.theme-sampler .track-card.active {
+      border: 2px solid var(--gold-thread);
+      background: #2A2118;
+    }
+
+    .track-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .track-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      color: #FF6B00;
+      line-height: 1;
+      min-width: 28px;
+    }
+
+    body.theme-sampler .track-num {
+      color: var(--red-thread);
+      font-family: 'Cinzel', serif;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .track-meta {
+      flex: 1;
+    }
+
+    .track-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #FFF;
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+
+    body.theme-sampler .track-title {
+      color: var(--bone-thread);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .track-sub {
+      font-size: 11px;
+      color: #94A3B8;
+      font-style: italic;
+    }
+
+    body.theme-sampler .track-sub {
+      color: var(--gold-thread);
+    }
+
+    .track-badge {
+      font-size: 10px;
+      color: #00E5FF;
+      font-family: 'Space Mono', monospace;
+    }
+
+    .track-teaser {
+      font-size: 11px;
+      color: #AAA;
+      line-height: 1.4;
+      margin: 8px 0;
+      font-family: 'Space Mono', monospace;
+    }
+
+    body.theme-sampler .track-teaser {
+      color: #C0B5A1;
+      font-family: 'IM Fell English', serif;
+      font-size: 12px;
+    }
+
+    .track-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+
+    .action-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 10px;
+      color: #CBD5E1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s ease;
+    }
+
+    .action-btn:hover {
+      background: rgba(255, 215, 0, 0.2);
+      border-color: #FFD700;
+      color: #FFD700;
+    }
+
+    /* Modal Backdrop */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-dialog {
+      background: #0E1322;
+      border: 2px solid #FF6B00;
+      border-radius: 12px;
+      max-width: 650px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 24px;
+      box-shadow: 0 0 35px rgba(255, 107, 0, 0.35);
+      position: relative;
+    }
+
+    body.theme-sampler .modal-dialog {
+      background: #221B14;
+      border: 3px double #A67C4A;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+      color: #EADFC9;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: #AAA;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .modal-close:hover {
+      color: #FF6B00;
+    }
+
+    .fact-section-title {
+      font-size: 11px;
+      font-family: 'Syncopate', sans-serif;
+      font-weight: 700;
+      color: #FFD700;
+      letter-spacing: 2px;
+      margin: 14px 0 6px;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+      padding-bottom: 4px;
+    }
+
+    body.theme-sampler .fact-section-title {
+      color: var(--gold-thread);
+      font-family: 'Cinzel', serif;
+    }
+
+    .fact-bullet {
+      font-size: 12px;
+      line-height: 1.5;
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .fact-bullet::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #FF6B00;
+    }
+
+    body.theme-sampler .fact-bullet::before {
+      content: '✚';
+      font-size: 9px;
+      color: var(--red-thread);
+    }
+
+    /* Whitman Sampler Needlepoint Lyrics Frame */
+    .sampler-lyric-box {
+      border: 3px dashed #8C6239;
+      background: #18130E;
+      padding: 20px;
+      border-radius: 6px;
+      margin-top: 16px;
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.7);
+    }
+
+    .sampler-x-border {
+      text-align: center;
+      color: var(--gold-thread);
+      font-size: 10px;
+      letter-spacing: 3px;
+      user-select: none;
+      margin: 8px 0;
+    }
+
+    .sampler-lyrics-body {
+      white-space: pre-wrap;
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #F6F1E5;
+      padding: 10px;
+    }
+
+    /* Footer Suite Strip */
+    .suite-footer-strip {
+      background: rgba(10, 14, 24, 0.95);
+      border-top: 1px solid rgba(255, 107, 0, 0.3);
+      padding: 30px 16px;
+      margin-top: 40px;
+    }
+
+    .suite-links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .suite-card-link {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      padding: 10px 14px;
+      text-decoration: none;
+      color: #E2E8F0;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .suite-card-link:hover {
+      background: rgba(255, 107, 0, 0.15);
+      border-color: #FF6B00;
+      color: #FFD700;
+    }
+
+    @media (max-width: 768px) {
+      .hero-marquee {
+        grid-template-columns: 1fr;
+      }
+      .cover-frame {
+        max-width: 240px;
+        margin: 0 auto;
+      }
+      .album-headline {
+        font-size: 24px;
+      }
+      .tracklist-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="theme-drivein">
+
+  <!-- Top Floating Header Bar -->
+  <header class="top-suite-bar">
+    <div class="brand-group">
+      <div class="brand-title">
+        <span>🍿</span>
+        <span>INTERZONE DRIVE-IN · 99.3 FM</span>
+      </div>
+    </div>
+
+    <div style="display:flex; align-items:center; gap:8px;">
+      <!-- Theme Switcher Button -->
+      <button class="suite-nav-btn theme-switch-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="Toggle Whitman Sampler needlepoint mode vs Interzone Drive-In mode">
+        <span id="theme-icon">🧵</span>
+        <span id="theme-label">WHITMAN SAMPLER</span>
+      </button>
+
+      <!-- Suite Navigation Dropdown Jump -->
+      <select onchange="if(this.value){window.open(this.value,'_blank');this.selectedIndex=0;}" class="suite-nav-btn" style="background:#151122; color:#FFD700; border-color:rgba(255,215,0,0.5);">
+        <option value="" selected>⚡ STRANGELET SUITE ▾</option>
+        <option value="https://interzone-drive-in.vercel.app/">🍿 Interzone Drive-In (Main Lot)</option>
+        <option value="https://perchance.org/strangelet-cine-sampler">📽️ 1. Cine-Sampler (Shot Library v2.0)</option>
+        <option value="https://audioarc.pollinations.app/">🎚️ 2. AudioArc (Filmmaking Studio)</option>
+        <option value="https://perchance.org/thelsc">⚛️ 3. The LSC (Sonic Collider & Mastering)</option>
+        <option value="https://perchance.org/the-wunderbar">⚡ 4. The Wunderbar (Movie Suite & Prompts)</option>
+        <option value="https://perchance.org/face-for-radio">🎙️ 5. Phase 4 Radio (Radio Plays)</option>
+        <option value="https://perchance.org/keneticut">🎞️ 6. KenetiCut (Choreography Studio)</option>
+        <option value="https://github.com/lordgriefo/Strangelet-Lab/releases">⚡ 7. Strangelet Lab (v2.5 Beta DAW)</option>
+        <option value="https://github.com/lordgriefo/strangelet-stitch">🪡 8. Strangelet Stitch (Reel Stitcher)</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="page-container">
+
+    <!-- Sampler Top Needlework Border (visible in Sampler mode) -->
+    <div class="sampler-border-top">
+      × × × ✚ ✦ ❖ ✦ ✚ · AS ABOVE, SO BELOW · ✚ ✦ ❖ ✦ ✚ × × ×
+    </div>
+
+    <!-- Hero Album Marquee -->
+    <section class="hero-marquee">
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div class="cover-frame" onclick="openCoverLightbox()" style="cursor:zoom-in;" title="Click to view full-resolution cover art">
+          <img src="./cover.jpg" alt="As Above, So Below Cover Art" class="cover-img" id="hero-cover-img" onerror="this.src='./covers/cover_06.jpg'" />
+        </div>
+        
+        <!-- Interactive Cover Art Edition Switcher -->
+        <div style="font-size:9px; font-family:'Syncopate',sans-serif; color:#AAA; letter-spacing:1px; margin-top:2px;">
+          SELECT COVER EDITION:
+        </div>
+        <div style="display:flex; gap:6px; overflow-x:auto; padding-bottom:4px;" id="cover-thumb-row">
+          <img src="./covers/cover_06.jpg" onclick="switchCover('./covers/cover_06.jpg', this)" class="cover-thumb active" title="Midnight Indigo Leather Edition" />
+          <img src="./covers/cover_10.jpg" onclick="switchCover('./covers/cover_10.jpg', this)" class="cover-thumb" title="Antique Saddle Brown Leather" />
+          <img src="./covers/cover_04.jpg" onclick="switchCover('./covers/cover_04.jpg', this)" class="cover-thumb" title="Gothic Alchemical Woodcut Engraving" />
+          <img src="./covers/cover_12.jpg" onclick="switchCover('./covers/cover_12.jpg', this)" class="cover-thumb" title="Dark Forest Emerald Gilded" />
+          <img src="./covers/cover_01.jpg" onclick="switchCover('./covers/cover_01.jpg', this)" class="cover-thumb" title="Obsidian Star Map Grimoire" />
+          <img src="./covers/cover_08.jpg" onclick="switchCover('./covers/cover_08.jpg', this)" class="cover-thumb" title="Midnight Navy Variant" />
+          <img src="./covers/cover_11.jpg" onclick="switchCover('./covers/cover_11.jpg', this)" class="cover-thumb" title="Cognac Leather Variant" />
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <div>
+          <div class="album-kicker">O'SHIBBOLETH & THE MAGIC STATIC SOCIETY PRESENTS</div>
+          <h1 class="album-headline">AS ABOVE, SO BELOW</h1>
+          <div class="album-subheadline">An Occult Songbook — Double LP in Six Volumes (30 Master Tracks)</div>
+          
+          <div class="album-badges">
+            <span class="badge-pill">📻 99.3 FM CAR SPEAKER</span>
+            <span class="badge-pill">🎻 APALACHIAN CLAWHAMMER</span>
+            <span class="badge-pill">💥 PAUL'S BOUTIQUE BOOM-BAP</span>
+            <span class="badge-pill">📜 THE ARCHIVIST FACT CARDS</span>
+            <span class="badge-pill">🧵 WHITMAN SAMPLER LYRICS</span>
+          </div>
+
+          <p class="album-blurb">
+            A late-night country weirdcore expedition from somewhere between an Appalachian holler and the Pleroma.
+            Old-time banjo chopped breaks meet JATO rocket fuel, Jack Parsons in Pasadena, Crowley’s winter in Hastings,
+            the Maria Orsic shortwave signal from Carcosa, and the Emerald Tablet closer.
+          </p>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <a href="./As%20Above,%20So%20Below%20An%20Occult%20Songbook.pdf" download class="suite-nav-btn" style="background:#FF6B00; color:#000; font-weight:800; border:none; padding:8px 14px;">
+            📥 DOWNLOAD MASTER BOOK (PDF)
+          </a>
+          <button onclick="playRandomTrack()" class="suite-nav-btn" style="background:rgba(255,215,0,0.15); border-color:#FFD700; color:#FFD700;">
+            🎲 RANDOM TRACK
+          </button>
+          <a href="https://buymeacoffee.com/magicstatic/" target="_blank" rel="noopener noreferrer" class="suite-nav-btn" style="color:#fbbf24;">
+            ☕ SUPPORT THE SOCIETY
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Master Audio Player Console -->
+    <section class="master-player-console">
+      <div class="now-playing-row">
+        <div class="now-playing-info">
+          <div class="now-playing-label" id="player-track-label">TUNED TO 99.3 FM // TRACK 01 OF 30</div>
+          <div class="now-playing-title" id="player-track-title">01. Babalon Working Blues</div>
+          <div class="now-playing-sub" id="player-track-sub">Jack Parsons & the JPL Moonchild · O'Shibboleth</div>
+        </div>
+        <div style="text-align:right;">
+          <button onclick="openCurrentFactCard()" class="action-btn" style="border-color:#FFD700; color:#FFD700; margin-bottom:4px;">
+            📜 FACT CARD
+          </button>
+          <button onclick="openCurrentLyrics()" class="action-btn" style="border-color:#00E5FF; color:#00E5FF;">
+            🧵 LYRICS
+          </button>
+        </div>
+      </div>
+
+      <!-- Scrubber -->
+      <div class="progress-container">
+        <span class="time-readout" id="current-time-text">0:00</span>
+        <input type="range" id="seek-slider" class="scrub-slider" value="0" min="0" max="100" step="0.1" onchange="seekAudio(this.value)" />
+        <span class="time-readout" id="duration-time-text">0:00</span>
+      </div>
+
+      <!-- Controls -->
+      <div class="transport-controls">
+        <div class="transport-btn-group">
+          <button class="ctrl-btn" onclick="prevTrack()" title="Previous Track">⏮️ PREV</button>
+          <button class="ctrl-btn ctrl-play-btn" id="play-pause-btn" onclick="togglePlayPause()">▶ PLAY</button>
+          <button class="ctrl-btn" onclick="nextTrack()" title="Next Track">⏭️ NEXT</button>
+          <button class="ctrl-btn" id="loop-btn" onclick="toggleLoop()" title="Toggle Single Loop">🔁 LOOP</button>
+        </div>
+
+        <div class="transport-btn-group">
+          <!-- Volume slider -->
+          <span style="font-size:11px; color:#AAA;">🔊</span>
+          <input type="range" min="0" max="1" step="0.05" value="0.9" onchange="setVolume(this.value)" class="scrub-slider" style="width:80px;" />
+          <!-- B-Movie Radio Ad Trigger -->
+          <button class="ctrl-btn radio-ad-btn" onclick="playDriveInIntermissionAd()" title="Play a vintage 1950s/60s Drive-In Snack Bar & Movie Ad">
+            🍿 DRIVE-IN AD
+          </button>
+        </div>
+      </div>
+
+      <!-- Hidden HTML5 Audio Element -->
+      <audio id="main-audio"></audio>
+    </section>
+
+    <!-- Volume Filter Pills -->
+    <div class="volume-filter-row">
+      <button class="vol-btn active" onclick="filterVolume('all', this)">ALL 30 TRACKS</button>
+      <button class="vol-btn" onclick="filterVolume('Vol. I', this)">VOL. I: CALIFORNIA WORKING</button>
+      <button class="vol-btn" onclick="filterVolume('Vol. II', this)">VOL. II: NIGHTSIDE & DESERT</button>
+      <button class="vol-btn" onclick="filterVolume('Vol. III', this)">VOL. III: GOLDEN DAWN</button>
+      <button class="vol-btn" onclick="filterVolume('Vol. IV', this)">VOL. IV: THE SPHERES</button>
+      <button class="vol-btn" onclick="filterVolume('Vol. V', this)">VOL. V: SIGNAL FROM CARCOSA</button>
+      <button class="vol-btn" onclick="filterVolume('Vol. VI', this)">VOL. VI: THE MANUSCRIPTS</button>
+    </div>
+
+    <!-- Tracklist Grid -->
+    <div class="tracklist-grid" id="tracklist-container">
+      <!-- Injected via JavaScript from window.AASB_TRACKS -->
+    </div>
+
+  </div>
+
+  <!-- Modal: Archivist Fact Card & Radio Dossier -->
+  <div class="modal-overlay" id="fact-modal" onclick="if(event.target===this)closeModal('fact-modal')">
+    <div class="modal-dialog">
+      <button class="modal-close" onclick="closeModal('fact-modal')">✕</button>
+      
+      <div style="font-size:10px; font-family:'Syncopate',sans-serif; color:#00E5FF; letter-spacing:2px; margin-bottom:4px;" id="modal-fact-kicker">
+        THE ARCHIVIST // RADIO FACT CARD
+      </div>
+      <h2 style="font-family:'Cinzel',serif; font-size:22px; color:#FFD700; margin-bottom:4px;" id="modal-fact-title">
+        01. Babalon Working Blues
+      </h2>
+      <div style="font-size:11px; color:#94A3B8; font-style:italic; margin-bottom:12px;" id="modal-fact-subtitle">
+        Pasadena, California, 1940s–1952
+      </div>
+
+      <div class="fact-section-title">Solid Documented Facts</div>
+      <div id="modal-fact-solid"></div>
+
+      <div class="fact-section-title">Legend & Disputed History</div>
+      <div id="modal-fact-legend"></div>
+
+      <div class="fact-section-title">The Archivist's One-Line Teaser</div>
+      <p style="font-size:12px; font-style:italic; color:#CBD5E1; padding:8px; background:rgba(255,255,255,0.03); border-left:3px solid #FF6B00; margin-top:4px;" id="modal-fact-teaser"></p>
+
+      <div class="fact-section-title" id="modal-fact-trans-title">Transmission Error</div>
+      <p style="font-size:11px; color:#F87171; font-family:'Space Mono',monospace;" id="modal-fact-trans"></p>
+    </div>
+  </div>
+
+  <!-- Modal: Whitman Sampler Needlepoint Lyrics Sheet -->
+  <div class="modal-overlay" id="lyrics-modal" onclick="if(event.target===this)closeModal('lyrics-modal')">
+    <div class="modal-dialog" style="max-width:700px;">
+      <button class="modal-close" onclick="closeModal('lyrics-modal')">✕</button>
+
+      <div class="sampler-x-border">× × × ✦ ❖ ✦ ✚ · WHITMAN SAMPLER FOLK LINER · ✚ ✦ ❖ ✦ ✚ × × ×</div>
+      
+      <h2 style="font-family:'Playfair Display',serif; font-size:24px; color:#FFD700; text-align:center; margin-bottom:4px;" id="modal-lyric-title">
+        01. Babalon Working Blues
+      </h2>
+      <div style="text-align:center; font-size:11px; color:#AAA; font-style:italic; margin-bottom:12px;" id="modal-lyric-sub">
+        Old-time country rap, Paul's Boutique sampling aesthetic, banjo chopped breaks
+      </div>
+
+      <div class="sampler-lyric-box">
+        <div class="sampler-lyrics-body" id="modal-lyric-body">
+          <!-- Lyrics content -->
+        </div>
+      </div>
+
+      <div class="sampler-x-border">× × × ✦ ❖ ✦ ✚ · AS ABOVE, SO BELOW · ✚ ✦ ❖ ✦ ✚ × × ×</div>
+    </div>
+  </div>
+
+  <!-- Sister Strangelet Suite Footer Links -->
+  <footer class="suite-footer-strip">
+    <div class="page-container" style="padding:0;">
+      <div style="font-family:'Bebas Neue',sans-serif; font-size:22px; color:#FF6B00; letter-spacing:2px; display:flex; align-items:center; gap:8px;">
+        <span>🎪</span>
+        <span>THE STRANGELET CREATIVE CONSTELLATION</span>
+      </div>
+      <p style="font-size:11px; color:#888; margin-top:4px;">
+        Connected roadside attractions across the Mojave interdimensional outpost.
+      </p>
+
+      <div class="suite-links-grid">
+        <a href="https://interzone-drive-in.vercel.app/" target="_blank" rel="noopener noreferrer" class="suite-card-link">
+          <span style="font-size:12px; font-weight:700; color:#FF6B00;">🍿 Interzone Drive-In</span>
+          <span style="font-size:10px; color:#AAA;">Living 4-screen drive-in theater, desert glider & sideshow marquee.</span>
+        </a>
+        <a href="https://audioarc.pollinations.app/" target="_blank" rel="noopener noreferrer" class="suite-card-link">
+          <span style="font-size:12px; font-weight:700; color:#0284C7;">🎚️ AudioArc (Pollinations)</span>
+          <span style="font-size:10px; color:#AAA;">AI filmmaking studio, beat-snapping storyboards & production bibles.</span>
+        </a>
+        <a href="https://perchance.org/thelsc" target="_blank" rel="noopener noreferrer" class="suite-card-link">
+          <span style="font-size:12px; font-weight:700; color:#C084FC;">⚛️ The Large Sonic Collider</span>
+          <span style="font-size:10px; color:#AAA;">1000+ particle prompt collider, 14-stage mastering & audio-to-MIDI.</span>
+        </a>
+        <a href="https://perchance.org/the-wunderbar" target="_blank" rel="noopener noreferrer" class="suite-card-link">
+          <span style="font-size:12px; font-weight:700; color:#FBBF24;">⚡ The Wunderbar</span>
+          <span style="font-size:10px; color:#AAA;">In-browser movie suite, 4-way previz, karaoke videos & screenplay writer.</span>
+        </a>
+        <a href="https://perchance.org/face-for-radio" target="_blank" rel="noopener noreferrer" class="suite-card-link">
+          <span style="font-size:12px; font-weight:700; color:#39FF14;">🎙️ Phase 4 Radio</span>
+          <span style="font-size:10px; color:#AAA;">Old-fashioned radio plays, audio dramas & multi-character voice studio.</span>
+        </a>
+        <a href="https://perchance.org/strangelet-cine-sampler" target="_blank" rel="noopener noreferrer" class="suite-card-link">
+          <span style="font-size:12px; font-weight:700; color:#34D399;">📽️ Strangelet Cine-Sampler</span>
+          <span style="font-size:10px; color:#AAA;">Cinematographic shot library & lens reference deck v2.0.</span>
+        </a>
+        <a href="https://github.com/lordgriefo/Strangelet-Lab/releases" target="_blank" rel="noopener noreferrer" class="suite-card-link">
+          <span style="font-size:12px; font-weight:700; color:#EAB308;">⚡ Strangelet Lab (DAW)</span>
+          <span style="font-size:10px; color:#AAA;">v2.5 Beta particle physics & sacred geometry desktop DAW.</span>
+        </a>
+        <a href="https://github.com/lordgriefo/strangelet-stitch" target="_blank" rel="noopener noreferrer" class="suite-card-link">
+          <span style="font-size:12px; font-weight:700; color:#A855F7;">🪡 Strangelet Stitch</span>
+          <span style="font-size:10px; color:#AAA;">Living reel montage & beat-synced video stitcher.</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Include Tracks Data -->
+  <script src="./tracksData.js"></script>
+
+  <!-- Player and UI Logic -->
+  <script>
+    const audio = document.getElementById('main-audio');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const seekSlider = document.getElementById('seek-slider');
+    const currentTimeText = document.getElementById('current-time-text');
+    const durationTimeText = document.getElementById('duration-time-text');
+    const tracklistContainer = document.getElementById('tracklist-container');
+    const loopBtn = document.getElementById('loop-btn');
+
+    let currentTrackIdx = 0;
+    let isLooping = false;
+    let currentFilter = 'all';
+
+    // Theme Toggle Logic
+    function toggleTheme() {
+      const isDriveIn = document.body.classList.contains('theme-drivein');
+      if (isDriveIn) {
+        document.body.classList.remove('theme-drivein');
+        document.body.classList.add('theme-sampler');
+        document.getElementById('theme-icon').textContent = '🍿';
+        document.getElementById('theme-label').textContent = 'DRIVE-IN NEON';
+      } else {
+        document.body.classList.remove('theme-sampler');
+        document.body.classList.add('theme-drivein');
+        document.getElementById('theme-icon').textContent = '🧵';
+        document.getElementById('theme-label').textContent = 'WHITMAN SAMPLER';
+      }
+    }
+
+    // Format Seconds to MM:SS
+    function formatTime(sec) {
+      if (!sec || isNaN(sec)) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return `${m}:${s < 10 ? '0' : ''}${s}`;
+    }
+
+    // Render Tracklist Grid
+    function renderTracklist() {
+      if (!window.AASB_TRACKS || !window.AASB_TRACKS.length) return;
+      tracklistContainer.innerHTML = '';
+
+      const filtered = window.AASB_TRACKS.filter(t => {
+        if (currentFilter === 'all') return true;
+        return t.volume.startsWith(currentFilter);
+      });
+
+      filtered.forEach((t) => {
+        const globalIdx = t.number - 1;
+        const isCur = globalIdx === currentTrackIdx;
+        const card = document.createElement('div');
+        card.className = `track-card ${isCur ? 'active' : ''}`;
+        card.onclick = (e) => {
+          // If clicked on buttons inside, don't trigger play
+          if (e.target.closest('.action-btn')) return;
+          playTrack(globalIdx);
+        };
+
+        card.innerHTML = `
+          <div>
+            <div class="track-header">
+              <span class="track-num">${t.numStr}</span>
+              <div class="track-meta">
+                <div class="track-title">${t.title}</div>
+                <div class="track-sub">${t.subtitle || t.artist}</div>
+              </div>
+              <span class="track-badge">${t.asciiBadge}</span>
+            </div>
+            <div class="track-teaser">"${t.oneLineTeaser || t.eraPlace}"</div>
+          </div>
+          <div class="track-actions">
+            <span style="font-size:10px; color:#888;">${t.side}</span>
+            <div style="display:flex; gap:6px;">
+              <button class="action-btn" onclick="openFactCard(${globalIdx})">📜 Facts</button>
+              <button class="action-btn" onclick="openLyrics(${globalIdx})">🧵 Lyrics</button>
+            </div>
+          </div>
+        `;
+        tracklistContainer.appendChild(card);
+      });
+    }
+
+    // Filter Volumes
+    function filterVolume(vol, btn) {
+      currentFilter = vol;
+      document.querySelectorAll('.vol-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderTracklist();
+    }
+
+    // Load & Play Track
+    function playTrack(idx) {
+      if (!window.AASB_TRACKS || idx < 0 || idx >= window.AASB_TRACKS.length) return;
+      currentTrackIdx = idx;
+      const t = window.AASB_TRACKS[idx];
+
+      audio.src = t.audioSrc;
+      audio.play().then(() => {
+        playPauseBtn.textContent = '⏸ PAUSE';
+      }).catch(err => {
+        console.warn('Playback blocked or pending interaction:', err);
+      });
+
+      updatePlayerDisplay(t);
+      renderTracklist();
+    }
+
+    function togglePlayPause() {
+      if (!audio.src) {
+        playTrack(0);
+        return;
+      }
+      if (audio.paused) {
+        audio.play();
+        playPauseBtn.textContent = '⏸ PAUSE';
+      } else {
+        audio.pause();
+        playPauseBtn.textContent = '▶ PLAY';
+      }
+    }
+
+    function prevTrack() {
+      const nextIdx = currentTrackIdx > 0 ? currentTrackIdx - 1 : window.AASB_TRACKS.length - 1;
+      playTrack(nextIdx);
+    }
+
+    function nextTrack() {
+      const nextIdx = currentTrackIdx < window.AASB_TRACKS.length - 1 ? currentTrackIdx + 1 : 0;
+      playTrack(nextIdx);
+    }
+
+    function playRandomTrack() {
+      const randIdx = Math.floor(Math.random() * window.AASB_TRACKS.length);
+      playTrack(randIdx);
+    }
+
+    function toggleLoop() {
+      isLooping = !isLooping;
+      audio.loop = isLooping;
+      loopBtn.style.color = isLooping ? '#FFD700' : '#FFF';
+      loopBtn.style.borderColor = isLooping ? '#FFD700' : 'rgba(255,255,255,0.2)';
+    }
+
+    function seekAudio(val) {
+      if (audio.duration) {
+        audio.currentTime = (val / 100) * audio.duration;
+      }
+    }
+
+    function setVolume(val) {
+      audio.volume = parseFloat(val);
+    }
+
+    function updatePlayerDisplay(t) {
+      document.getElementById('player-track-label').textContent = `TUNED TO 99.3 FM // ${t.side.toUpperCase()} · TRACK ${t.numStr} OF 30`;
+      document.getElementById('player-track-title').textContent = `${t.numStr}. ${t.title}`;
+      document.getElementById('player-track-sub').textContent = `${t.subtitle || ''} · ${t.artist}`;
+    }
+
+    // Audio Event Listeners
+    audio.addEventListener('timeupdate', () => {
+      if (audio.duration) {
+        const pct = (audio.currentTime / audio.duration) * 100;
+        seekSlider.value = pct;
+        currentTimeText.textContent = formatTime(audio.currentTime);
+        durationTimeText.textContent = formatTime(audio.duration);
+      }
+    });
+
+    audio.addEventListener('ended', () => {
+      if (!isLooping) {
+        nextTrack();
+      }
+    });
+
+    // Drive-In Intermission Ad Player
+    const ads = [
+      'ad_radioactive_01_snack_bar.mp3',
+      'ad_radioactive_02_hotrod_shock.mp3',
+      'ad_radioactive_03_car_speaker.mp3',
+      'ad_radioactive_04_midnight_creeps.mp3',
+      'ad_radioactive_05_space_patrol.mp3',
+      'ad_radioactive_06_diner_special.mp3',
+      'ad_radioactive_07_thelemite_50ft.mp3',
+      'ad_radioactive_08_last_chance_gas.mp3'
+    ];
+
+    function playDriveInIntermissionAd() {
+      const randAd = ads[Math.floor(Math.random() * ads.length)];
+      audio.src = `./vintage_ads/${randAd}`;
+      audio.play().then(() => {
+        playPauseBtn.textContent = '⏸ PAUSE';
+        document.getElementById('player-track-label').textContent = '📻 99.3 FM DRIVE-IN INTERMISSION';
+        document.getElementById('player-track-title').textContent = '🍿 Vintage Radioactive Snack Bar Ad';
+        document.getElementById('player-track-sub').textContent = 'Mojave Outpost Radio Broadcast';
+      });
+    }
+
+    // Fact Card Modal
+    function openFactCard(idx) {
+      const t = window.AASB_TRACKS[idx];
+      if (!t) return;
+
+      document.getElementById('modal-fact-kicker').textContent = `${t.side.toUpperCase()} // TRACK ${t.numStr} ARCHIVAL FACT CARD`;
+      document.getElementById('modal-fact-title').textContent = `${t.numStr}. ${t.title}`;
+      document.getElementById('modal-fact-subtitle').textContent = `${t.subtitle || ''} — ${t.eraPlace}`;
+
+      const solidContainer = document.getElementById('modal-fact-solid');
+      solidContainer.innerHTML = '';
+      if (t.solidFacts && t.solidFacts.length) {
+        t.solidFacts.forEach(f => {
+          const p = document.createElement('div');
+          p.className = 'fact-bullet';
+          p.textContent = f;
+          solidContainer.appendChild(p);
+        });
+      } else {
+        solidContainer.innerHTML = '<div class="fact-bullet">Historical records archived in the Society library.</div>';
+      }
+
+      const legendContainer = document.getElementById('modal-fact-legend');
+      legendContainer.innerHTML = '';
+      if (t.legendDisputed && t.legendDisputed.length) {
+        t.legendDisputed.forEach(f => {
+          const p = document.createElement('div');
+          p.className = 'fact-bullet';
+          p.textContent = f;
+          legendContainer.appendChild(p);
+        });
+      } else {
+        legendContainer.innerHTML = '<div class="fact-bullet">Folklore and local legends surrounding this track remain unconfirmed.</div>';
+      }
+
+      document.getElementById('modal-fact-teaser').textContent = `"${t.oneLineTeaser || 'Nobody stays here.'}"`;
+
+      const transEl = document.getElementById('modal-fact-trans');
+      const transTitle = document.getElementById('modal-fact-trans-title');
+      if (t.transmissionError) {
+        transTitle.style.display = 'block';
+        transEl.style.display = 'block';
+        transEl.textContent = `Transmission Error: "${t.transmissionError}"`;
+      } else {
+        transTitle.style.display = 'none';
+        transEl.style.display = 'none';
+      }
+
+      document.getElementById('fact-modal').classList.add('open');
+    }
+
+    function openCurrentFactCard() {
+      openFactCard(currentTrackIdx);
+    }
+
+    // Lyrics Modal
+    function openLyrics(idx) {
+      const t = window.AASB_TRACKS[idx];
+      if (!t) return;
+
+      document.getElementById('modal-lyric-title').textContent = `${t.numStr}. ${t.title}`;
+      document.getElementById('modal-lyric-sub').textContent = t.stylePrompt || `${t.subtitle || ''} · ${t.artist}`;
+      document.getElementById('modal-lyric-body').textContent = t.lyrics;
+
+      document.getElementById('lyrics-modal').classList.add('open');
+    }
+
+    function openCurrentLyrics() {
+      openLyrics(currentTrackIdx);
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('open');
+    }
+
+    // Close on Escape Key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal('fact-modal');
+        closeModal('lyrics-modal');
+      }
+    });
+
+    // Cover Switcher & Lightbox
+    function switchCover(src, el) {
+      document.getElementById('hero-cover-img').src = src;
+      document.querySelectorAll('.cover-thumb').forEach(t => t.classList.remove('active'));
+      if (el) el.classList.add('active');
+    }
+
+    function openCoverLightbox() {
+      const src = document.getElementById('hero-cover-img').src;
+      window.open(src, '_blank');
+    }
+
+    // Initialize
+    window.addEventListener('DOMContentLoaded', () => {
+      renderTracklist();
+      if (window.AASB_TRACKS && window.AASB_TRACKS.length) {
+        updatePlayerDisplay(window.AASB_TRACKS[0]);
+      }
+    });
+  </script>
+</body>
+</html>
