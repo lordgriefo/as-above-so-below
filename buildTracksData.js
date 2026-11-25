@@ -46,7 +46,7 @@ mp3Files.forEach((file, idx) => {
     numStr: numStr,
     title: card.title || cleanTitle,
     subtitle: card.subtitle || '',
-    artist: card.artist || "O'Shibboleth & The Magic Static Society",
+    artist: "O'Shibboleth",
     file: file,
     audioSrc: './30_master_tracks_mp3/' + encodeURIComponent(file),
     volume: volume,
